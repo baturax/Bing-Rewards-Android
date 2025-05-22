@@ -48,15 +48,12 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Opener(modifier: Modifier = Modifier) {
     val context = LocalContext.current
-
-    // States for random indices
     var a1 by remember { mutableIntStateOf(Random.nextInt(subjects.size)) }
     var a2 by remember { mutableIntStateOf(Random.nextInt(verbs.size)) }
     var a3 by remember { mutableIntStateOf(Random.nextInt(objects.size)) }
     var a4 by remember { mutableIntStateOf(Random.nextInt(adjectivesAdverbs.size)) }
     var a5 by remember { mutableIntStateOf(Random.nextInt(prepositionsConjunctionsArticles.size)) }
 
-    // Compose the sentence from selected words
     var text by remember {
         mutableStateOf("${subjects[a1]} ${verbs[a2]} ${objects[a3]} ${adjectivesAdverbs[a4]} ${prepositionsConjunctionsArticles[a5]}")
     }
@@ -84,7 +81,6 @@ fun Opener(modifier: Modifier = Modifier) {
         )
 
         Button(onClick = {
-            // Generate new random indices
             a1 = Random.nextInt(subjects.size)
             a2 = Random.nextInt(verbs.size)
             a3 = Random.nextInt(objects.size)
@@ -94,7 +90,6 @@ fun Opener(modifier: Modifier = Modifier) {
             text =
                 "${subjects[a1]} ${verbs[a2]} ${objects[a3]} ${adjectivesAdverbs[a4]} ${prepositionsConjunctionsArticles[a5]}"
 
-            // Build URL from current text
             val intent = Intent(Intent.ACTION_VIEW, url.toUri())
             context.startActivity(intent)
         }) {
