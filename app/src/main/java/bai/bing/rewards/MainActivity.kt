@@ -48,14 +48,14 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Opener(modifier: Modifier = Modifier) {
     val context = LocalContext.current
-    var a1 by remember { mutableIntStateOf(Random.nextInt(subjects.size)) }
-    var a2 by remember { mutableIntStateOf(Random.nextInt(verbs.size)) }
-    var a3 by remember { mutableIntStateOf(Random.nextInt(objects.size)) }
-    var a4 by remember { mutableIntStateOf(Random.nextInt(adjectivesAdverbs.size)) }
-    var a5 by remember { mutableIntStateOf(Random.nextInt(prepositionsConjunctionsArticles.size)) }
+    var a1 by remember { mutableIntStateOf(Random.nextInt(array1.size)) }
+    var a2 by remember { mutableIntStateOf(Random.nextInt(array2.size)) }
+    var a3 by remember { mutableIntStateOf(Random.nextInt(array3.size)) }
+    var a4 by remember { mutableIntStateOf(Random.nextInt(array4.size)) }
+    var a5 by remember { mutableIntStateOf(Random.nextInt(array5.size)) }
 
     var text by remember {
-        mutableStateOf("${subjects[a1]} ${verbs[a2]} ${objects[a3]} ${adjectivesAdverbs[a4]} ${prepositionsConjunctionsArticles[a5]}")
+        mutableStateOf("${array1[a1]} ${array2[a2]} ${array3[a3]} ${array4[a4]} ${array5[a5]}")
     }
 
     val url = "https://www.bing.com/search?q=$text&PC=U316&FORM=CHROMN"
@@ -81,14 +81,14 @@ fun Opener(modifier: Modifier = Modifier) {
         )
 
         Button(onClick = {
-            a1 = Random.nextInt(subjects.size)
-            a2 = Random.nextInt(verbs.size)
-            a3 = Random.nextInt(objects.size)
-            a4 = Random.nextInt(adjectivesAdverbs.size)
-            a5 = Random.nextInt(prepositionsConjunctionsArticles.size)
+            a1 = Random.nextInt(array1.size)
+            a2 = Random.nextInt(array2.size)
+            a3 = Random.nextInt(array3.size)
+            a4 = Random.nextInt(array4.size)
+            a5 = Random.nextInt(array5.size)
 
             text =
-                "${subjects[a1]} ${verbs[a2]} ${objects[a3]} ${adjectivesAdverbs[a4]} ${prepositionsConjunctionsArticles[a5]}"
+                "${array1[a1]} ${array2[a2]} ${array3[a3]} ${array4[a4]} ${array5[a5]}"
 
             val intent = Intent(Intent.ACTION_VIEW, url.toUri())
             context.startActivity(intent)
@@ -98,7 +98,7 @@ fun Opener(modifier: Modifier = Modifier) {
     }
 }
 
-val subjects =
+val array1 =
     listOf(
         "he",
         "she",
@@ -182,7 +182,7 @@ val subjects =
         "guests",
     )
 
-val verbs =
+val array2 =
     listOf(
         "is",
         "are",
@@ -267,7 +267,7 @@ val verbs =
         "tried",
     )
 
-val objects =
+val array3 =
     listOf(
         "book",
         "car",
@@ -351,7 +351,7 @@ val objects =
         "lake",
     )
 
-val adjectivesAdverbs =
+val array4 =
     listOf(
         "quick",
         "slow",
@@ -435,7 +435,7 @@ val adjectivesAdverbs =
         "dull",
     )
 
-val prepositionsConjunctionsArticles =
+val array5 =
     listOf(
         "and",
         "or",
